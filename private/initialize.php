@@ -14,7 +14,7 @@
   // * Do not need to include the domain
   // * Use same document root as webserver
   // * Can set a hardcoded value:
-  // define("WWW_ROOT", '/~kevinskoglund/chain_gang/public');
+  // define("WWW_ROOT", '/~kevinskoglund/bicycle_store/public');
   // define("WWW_ROOT", '');
   // * Can dynamically find everything in URL up to "/public"
   $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;

@@ -1,10 +1,9 @@
 <?php require_once('../../../private/initialize.php'); ?>
-<?php require_user_login(); ?>
+<?php require_admin_login(); ?>
 
 <?php
 
 $id = $_GET['id'] ?? 1; // PHP > 7.0
-//$id = (int) test_input($id);
 if(!$user = User::find_by_id($id)){
   redirect_to('./../../not_found.php');
   error_404();

@@ -52,6 +52,20 @@ if(is_post_request()) {
 <?php $page_title = 'Log in'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
+<!-- Prevent the user to logout clicking back button on the browser,
+without deleting the session or cookie -->
+<script type="text/javascript">
+  function backButtonOverride() {
+    setTimeout("backButtonOverrideBody()", 1);
+  }
+  function backButtonOverrideBody() {
+    try {
+      history.forward();
+    } catch (e) {}
+    setTimeout("backButtonOverrideBody()",50);
+  }
+</script>
+
 <div id="content">
   <h1>Log in</h1>
 

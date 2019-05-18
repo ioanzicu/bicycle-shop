@@ -17,10 +17,10 @@
 		<li><a href="<?php echo url_for('/staff/logout.php'); ?>">Log Out</a></li>
 	<!-- LOG IN BUTTON -->
     <?php else: ?>
-    	<li><a href="<?php echo url_for('/staff/login.php'); ?>">Log In</a></li>	
+    	<li><a href="<?php echo url_for('/staff/login.php'); ?>">Log In</a></li>
     <?php endif ?>
-    
-  </ul> 
+
+  </ul>
 </div>
 
 <?php $super_hero_image = 'mountains.jpg'; ?>

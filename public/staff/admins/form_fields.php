@@ -23,7 +23,8 @@ if(!isset($admin)) {
 
 <dl>
   <dt>Username</dt>
-  <dd><input type="text" name="admin[username]" value="<?php echo h($admin->get_admin_username()); ?>" /></dd>
+  <dd><input type="text" name="admin[username]" value="<?php echo h($admin->get_admin_username()); ?>"
+    <?php if($edit) { ?> readonly <?php } ?> /></dd>
 </dl>
 
 <dl>

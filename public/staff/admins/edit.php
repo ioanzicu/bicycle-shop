@@ -36,7 +36,7 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Edit Admin'; ?>
-<?php include(SHARED_PATH . './staff_header.php'); ?>
+<?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
 
@@ -45,7 +45,10 @@ if(is_post_request()) {
   <div class="admin edit">
     <h1>Edit Admin</h1>
 
-    <?php echo display_errors($admin->get_errors()); ?>
+    <?php
+        echo display_errors($admin->get_errors());
+        $edit = true;
+    ?>
 
     <form action="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($id))); ?>" method="post">
 
@@ -55,6 +58,8 @@ if(is_post_request()) {
         <input type="submit" value="Edit Admin" />
       </div>
     </form>
+
+    <?php $edit = false; ?>
 
   </div>
 

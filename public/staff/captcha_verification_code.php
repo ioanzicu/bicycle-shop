@@ -37,7 +37,9 @@ $second = $source[mt_rand(0,61)];
 $third = $source[mt_rand(0,61)];
 $fourth = $source[mt_rand(0,61)];
 $_SESSION['vcode'] = $first.$second.$third.$fourth;
-// FULL PATH TO FONTS
+/*
+ Add ABOSLUTE PATH TO THE FONTS located in ../public/font/.. 
+*/
 $font = "/opt/lampp/htdocs/projects/content-iro-php-master/public/font/2.ttf";
 
 imagettftext($image, 20, mt_rand(-20,20), 10, 30, $black, $font, $first);

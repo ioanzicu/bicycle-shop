@@ -66,6 +66,10 @@ if(!$bike = Content::find_by_id($id)){
       </dl>
       <dl>
         <dt>Description</dt>
+        <dt>
+          <br />
+          <br />
+        </dt>
         <dd><?php echo h($bike->get_content_decription()); ?></dd>
       </dl>
     </div>
@@ -75,6 +79,6 @@ if(!$bike = Content::find_by_id($id)){
 </div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
-<?php 
-} 
+<?php
+}
 ?>

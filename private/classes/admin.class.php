@@ -57,19 +57,18 @@ class Admin extends DatabaseObject {
   }
 
   protected function validate() {
-    echo "First Name <br />";
     if(is_blank($this->first_name)) {
       $this->errors[] = "First name cannot be blank.";
     } elseif (!has_length($this->first_name, array('min' => 2, 'max' => 255))) {
       $this->errors[] = "First name must be between 2 and 255 characters.";
     }
-    echo "Last Name <br />";
+
     if(is_blank($this->last_name)) {
       $this->errors[] = "Last name cannot be blank.";
     } elseif (!has_length($this->last_name, array('min' => 2, 'max' => 255))) {
       $this->errors[] = "Last name must be between 2 and 255 characters.";
     }
-    echo "Email <br />";
+
     if(is_blank($this->email)) {
       $this->errors[] = "Email cannot be blank.";
     } elseif (!has_length($this->email, array('max' => 255))) {
@@ -77,7 +76,7 @@ class Admin extends DatabaseObject {
     } elseif (!has_valid_email_format($this->email)) {
       $this->errors[] = "Email must be a valid format.";
     }
-    echo "Username <br />";
+
     if(is_blank($this->username)) {
       $this->errors[] = "Username cannot be blank.";
     } elseif (!has_length($this->username, array('min' => 8, 'max' => 255))) {
@@ -85,7 +84,7 @@ class Admin extends DatabaseObject {
     } elseif (!$this->has_unique_username($this->username, $this->id ?? 0)) {
       $this->errors[] = "Username not allowed. Try another.";
     }
-    echo "Password Required <br />";
+
     if($this->password_required) {
       if(is_blank($this->password)) {
         $this->errors[] = "Password cannot be blank.";
@@ -175,9 +174,7 @@ class Admin extends DatabaseObject {
     $result = self::$database->query($sql);
     if($result) {
       $this->id = self::$database->insert_id;
-      echo $this->id;
     }
-    echo $result;
     return $result;
   }
 
@@ -189,14 +186,12 @@ class Admin extends DatabaseObject {
       // password not being updated, skip hashing and validation
       $this->password_required = false;
     }
-    // echo "Valdate <br />";
     $this->validate();
-    // echo "Check errors <br />";
+    //  Check errors
     if(!empty($this->errors)) { return false; }
-    // echo "Sanitize atribites <br />";
+    // Sanitize atribites
     $attributes = $this->sanitized_attributes();
     $attribute_pairs = [];
-    // echo "Foreach <br />";
     foreach($attributes as $key => $value) {
       $attribute_pairs[] = "{$key}='{$value}'";
     }
@@ -212,10 +207,8 @@ class Admin extends DatabaseObject {
   public function save() {
     // A new record will not have an ID yet
     if(isset($this->id)) {
-      // echo "Updated";
       return $this->update();
     } else {
-      // echo "Created";
       return $this->create();
     }
   }
@@ -255,7 +248,6 @@ class Admin extends DatabaseObject {
     return $result;
   }
 
-
   public function find_by_username($username) {
     $sql = "SELECT * FROM " . static::$table_name . " ";
     $sql .= "WHERE username='" . self::$database->escape_string($username) . "'";
@@ -273,10 +265,6 @@ class Admin extends DatabaseObject {
   // * For existing records, provide current ID as second argument
   //   has_unique_username('johnqpublic', 4)
   public function has_unique_username($username, $current_id="0") {
-    // $object = new static;
-    echo "current id = ". $current_id;
-    echo "admin id = ". $this->id;
-    echo "username = ". $username;
     $admin = $this->find_by_username($username);
     if($admin === false || $this->id == $current_id) {
       // is unique

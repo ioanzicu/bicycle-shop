@@ -45,6 +45,6 @@ if(!$admin = Admin::find_by_id($id)){
 
 </div>
 
-<?php 
-} 
+<?php
+}
 ?>

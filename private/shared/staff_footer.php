@@ -1,6 +1,6 @@
 <footer>
 	<div class="copyright">
-		&copy; <?php echo date('Y'); ?> Iro Content
+		&copy; <?php echo date('Y'); ?> Iro's Bicycle Warehouse
 	</div>
 </footer>
 

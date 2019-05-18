@@ -1,10 +1,5 @@
-admin:    iron-aka
-password: 12345678
+admin:    great.admin       best.admin
+password: Great.admin1      Best.admin123
 
-
-pawel.rotar
-Pawel.rotar1
-
-
-temp.user
-Temp.user123
+user:     pawel.rotar       temp.user
+password: Pawel.rotar1      Temp.user123

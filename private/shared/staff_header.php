@@ -11,24 +11,24 @@
     <link rel="stylesheet" media="all" href="<?php echo url_for('/css/staff.css'); ?>" />
   </head>
 
-  <body>
+  <body onLoad="backButtonOverride()">
     <header>
-      <h1>Iro Content Staff Area</h1>
+      <h1>Iro's Bicycle Warehouse Staff Area</h1>
     </header>
 
     <navigation>
+
       <ul>
         <?php if($session->is_logged_in()) { ?>
         <li>Admin: <?php echo $session->get_username(); ?></li>
         <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
         <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Logout</a></li>
-        <?php } ?>
-        <?php if($cookie->is_logged_in()) { ?>
+      <?php } if($cookie->is_logged_in()) { ?>
         <li>User: <?php echo $cookie->get_username(); ?></li>
-        
         <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Logout</a></li>
         <?php } ?>
       </ul>
+
     </navigation>
 
     <?php echo display_session_message(); ?>

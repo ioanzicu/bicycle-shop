@@ -1,9 +1,7 @@
+<?php require_once('../../../private/initialize.php'); ?>
+<?php require_admin_login(); ?>
+
 <?php
-
-require_once('../../../private/initialize.php');
-
-require_admin_login();
-
 if(is_post_request()) {
 
   // Create record using post parameters
@@ -36,7 +34,10 @@ if(is_post_request()) {
   <div class="admin new">
     <h1>Create Admin</h1>
 
-    <?php echo display_errors($admin->get_errors()); ?>
+    <?php
+        echo display_errors($admin->get_errors());
+        $edit = false;
+    ?>
 
     <form action="<?php echo url_for('/staff/admins/new.php'); ?>" method="post">
 
