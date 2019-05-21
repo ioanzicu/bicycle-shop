@@ -2,6 +2,7 @@
   <?php if(isset($super_hero_image)) { ?>
 
     <div class="expanding-wrapper">
+    <!-- <div> -->
       <?php $image_url = url_for('/images/' . $super_hero_image); ?>
       <img id="super-hero-image" src="<?php echo $image_url; ?>" />
       <footer>

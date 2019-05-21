@@ -13,6 +13,6 @@
 
 </div>
 
-<?php $super_hero_image = 'lights.jpg'; ?>
+<?php $super_hero_image = 'about.jpg'; ?>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

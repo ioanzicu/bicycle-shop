@@ -23,6 +23,6 @@
   </ul>
 </div>
 
-<?php $super_hero_image = 'mountains.jpg'; ?>
+<?php $super_hero_image = 'main.jpg'; ?>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

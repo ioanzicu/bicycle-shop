@@ -15,10 +15,7 @@ if (!$pagination->total_pages_checker()) {
     redirect_to('./../../not_found.php');
 } else {
 
-// Find all bicycles;
-// use pagination instead
-// $bicycles = Bicycle::find_all();
-
+// Limit the query offset
 $sql = "SELECT * FROM bicycles ";
 $sql .= "LIMIT {$per_page} ";
 $sql .= "OFFSET {$pagination->offset()}";
@@ -71,10 +68,9 @@ $bicycles = Content::find_by_sql($sql);
   	</table>
 
 <?php
-$url = url_for('/staff/content/index.php');
-echo $pagination->page_links($url);
+  $url = url_for('/staff/content/index.php');
+  echo $pagination->page_links($url);
 ?>
-
 
   </div>
 

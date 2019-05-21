@@ -66,7 +66,6 @@ class Pagination {
   public function total_pages_checker(){
    if ($this->current_page > $this->total_pages() || 
        $this->current_page < 1 || !is_int($this->current_page)){
-      echo "Boom";
       return false;
     }
     return true;
