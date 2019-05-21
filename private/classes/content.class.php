@@ -196,15 +196,9 @@ static public function find_all() {
     return static::find_by_sql($sql);
   }
 
-   // SORT CONTENT BY CATEGORY
-  static public function sort_by_category($category) {
-    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY " . $category;
-    return static::find_by_sql($sql);
-  }
-
    // SORT CONTENT BY GENDER
   static public function sort_by_gender($gender) {
-    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY " . $gender;
+    $sql = "SELECT * FROM " . static::$table_name . " WHERE gender='" . $gender . "'";
     return static::find_by_sql($sql);
   }
 
@@ -219,6 +213,7 @@ static public function find_all() {
     $sql = "SELECT * FROM " . static::$table_name . " ORDER BY price";
     return static::find_by_sql($sql);
   }
+
 
   static protected function instantiate($record) {
     $object = new static;

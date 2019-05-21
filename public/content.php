@@ -18,6 +18,7 @@
 
  <?php
   $sort = ""; 
+  $gender = "";
   
   if (isset($_POST["default"]) && $_POST["default"] === "default") {
     $sort = "";
@@ -27,6 +28,19 @@
     $sort = "model";
   } elseif (isset($_POST["year"]) && $_POST["year"] === "year") {
     $sort = "year";
+  } elseif (isset($_POST["gender"]) && ($_POST["gender"] === "Mens" || 
+            $_POST["gender"] === "Womens" || $_POST["gender"] === "Unisex")) {
+    
+      $sort = "gender";
+
+    if($_POST["gender"] === "Mens") {
+      $gender = "Mens";
+    } elseif($_POST["gender"] === "Womens") {
+      $gender = "Womens";
+    } elseif($_POST["gender"] === "Unisex") {
+      $gender = "Unisex";
+    }
+  
   } elseif (isset($_POST["color"]) && $_POST["color"] === "color") {
     $sort = "color";
   } elseif (isset($_POST["price"]) && $_POST["price"] === "price") {
@@ -47,14 +61,21 @@
         <th><input type="submit" name="model" value="model"/></th>
         <th><input type="submit" name="year" value="year"/></th>
         <th>Category</th>
-        <th>Gender</th>
+        <th>
+          <select name="gender" onchange="this.form.submit()">
+            <option selected> Gender</option>
+            <option value="Mens">Mens</option>
+            <option value="Womens">Womens</option>
+            <option value="Unisex">Unisex</option>
+          </select>
+          <noscript><input type="submit" value="submit"></noscript>
+        </th>
         <th><input type="submit" name="color" value="color"/></th>
         <th><input type="submit" name="price" value="price"/></th>
         <th>&nbsp;</th>
       
       </tr>
       </form> 
-
 <?php
 
 switch($sort) {
@@ -67,6 +88,9 @@ switch($sort) {
   case "year":
     $bikes = Content::sort_by_year();
     break;
+  case "gender":
+    $bikes = Content::sort_by_gender($gender);
+    break;  
   case "color":
     $bikes = Content::sort_by_color();
     break;
@@ -78,9 +102,9 @@ switch($sort) {
     break;
 }
 
-
 unset($_POST);
 ?>
+
       <?php foreach($bikes as $bike) { ?>
       <tr>
         <td><?php echo h($bike->get_content_brand()); ?></td>
