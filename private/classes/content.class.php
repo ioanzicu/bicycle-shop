@@ -178,6 +178,48 @@ static public function find_all() {
     }
   }
 
+  // SORT CONTENT BY BRAND 
+  static public function sort_by_brand() {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY brand";
+    return static::find_by_sql($sql);
+  }
+
+  // SORT CONTENT BY MODEL
+  static public function sort_by_model() {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY model";
+    return static::find_by_sql($sql);
+  }
+
+  // SORT CONTENT BY YEAR
+  static public function sort_by_year() {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY year";
+    return static::find_by_sql($sql);
+  }
+
+   // SORT CONTENT BY CATEGORY
+  static public function sort_by_category($category) {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY " . $category;
+    return static::find_by_sql($sql);
+  }
+
+   // SORT CONTENT BY GENDER
+  static public function sort_by_gender($gender) {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY " . $gender;
+    return static::find_by_sql($sql);
+  }
+
+  // SORT CONTENT BY COLOR
+  static public function sort_by_color() {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY color";
+    return static::find_by_sql($sql);
+  }
+
+  // SORT CONTENT BY PRICE
+  static public function sort_by_price() {
+    $sql = "SELECT * FROM " . static::$table_name . " ORDER BY price";
+    return static::find_by_sql($sql);
+  }
+
   static protected function instantiate($record) {
     $object = new static;
     // Could manually assign values to properties

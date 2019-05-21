@@ -13,22 +13,73 @@
       <p>We will deliver it to your door and let you try it before you buy it.</p>
     </div>
 
+
+
+
+ <?php
+  $sort = ""; 
+  
+  if (isset($_POST["default"]) && $_POST["default"] === "default") {
+    $sort = "";
+  } elseif(isset($_POST["brand"]) && $_POST["brand"] === "brand") {
+    $sort = "brand";
+  } elseif (isset($_POST["model"]) && $_POST["model"] === "model") {
+    $sort = "model";
+  } elseif (isset($_POST["year"]) && $_POST["year"] === "year") {
+    $sort = "year";
+  } elseif (isset($_POST["color"]) && $_POST["color"] === "color") {
+    $sort = "color";
+  } elseif (isset($_POST["price"]) && $_POST["price"] === "price") {
+    $sort = "price";
+  } else {
+    $sort = "";
+  }
+ 
+  ?>
+
     <table id="inventory">
       <tr>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Year</th>
+      <form method="post" action="content.php">
+        
+        <input type="submit" name="default" value="default"/>
+
+        <th><input type="submit" name="brand" value="brand"/></th>
+        <th><input type="submit" name="model" value="model"/></th>
+        <th><input type="submit" name="year" value="year"/></th>
         <th>Category</th>
         <th>Gender</th>
-        <th>Color</th>
-        <th>Price</th>
+        <th><input type="submit" name="color" value="color"/></th>
+        <th><input type="submit" name="price" value="price"/></th>
         <th>&nbsp;</th>
+      
       </tr>
+      </form> 
 
 <?php
 
-$bikes = Content::find_all();
+switch($sort) {
+  case "brand":
+    $bikes = Content::sort_by_brand();
+    break;
+  case "model":
+    $bikes = Content::sort_by_model();
+    break;
+  case "year":
+    $bikes = Content::sort_by_year();
+    break;
+  case "color":
+    $bikes = Content::sort_by_color();
+    break;
+  case "price":
+    $bikes = Content::sort_by_price();
+    break;
+  default:
+    $bikes = Content::find_all();
+    break;
+}
 
+
+unset($_POST);
 ?>
       <?php foreach($bikes as $bike) { ?>
       <tr>

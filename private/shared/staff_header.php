@@ -6,14 +6,19 @@
 
 <html lang="en">
   <head>
-    <title>Iro Content - <?php echo h($page_title); ?></title>
+    <title>Iro's Bicycle Warehouse - <?php echo h($page_title); ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" media="all" href="<?php echo url_for('/css/staff.css'); ?>" />
   </head>
 
   <body onLoad="backButtonOverride()">
     <header>
-      <h1>Iro's Bicycle Warehouse Staff Area</h1>
+      <h1>
+        <a href="/projects/content-iro-php-master/public/index.php" style="text-decoration: none;
+  color: white;">
+          Iro's Bicycle Warehouse Staff Area
+        </a>
+      </h1>
     </header>
 
     <navigation>
