@@ -23,7 +23,7 @@ function require_user_login() {
 function display_errors($errors=array()) {
   $output = '';
   if(!empty($errors)) {
-    $output .= "<div class=\"errors\">";
+    $output .= "<div class=\"errors center-text\">";
     $output .= "Please fix the following errors:";
     $output .= "<ul>";
     foreach($errors as $error) {
@@ -40,7 +40,7 @@ function display_session_message() {
   $msg = $session->message();
   if(isset($msg) && $msg != '') {
     $session->clear_message();
-    return '<div id="message">' . h($msg) . '</div>';
+    return '<div class="center-text" id="message">' . h($msg) . '</div>';
   }
 }
 
@@ -49,7 +49,7 @@ function display_cookie_message() {
   $msg = $cookie->message();
   if(isset($msg) && $msg != '') {
     $cookie->clear_message();
-    return '<div id="message">' . h($msg) . '</div>';
+    return '<div class="center-text" id="message">' . h($msg) . '</div>';
   }
 }
 

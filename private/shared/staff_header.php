@@ -25,7 +25,7 @@
 
       <ul>
         <?php if($session->is_logged_in()) { ?>
-        <li>Admin: <?php echo $session->get_username(); ?></li>
+        <li>Admin: <b><?php echo $session->get_username(); ?></b></li>
         <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
         <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Logout</a></li>
       <?php } if($cookie->is_logged_in()) { ?>

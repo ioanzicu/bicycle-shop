@@ -67,25 +67,28 @@ without deleting the session or cookie -->
 </script>
 
 <div id="content">
-  <h1>Log in</h1>
+  <h1 class="center-text">Log in</h1>
 
   <?php echo display_errors($errors); ?>
 
-  <form action="login.php" method="post">
+  <form class="form" action="login.php" method="post">
     Username:<br />
     <input type="text" name="username" value="<?php echo h($username); ?>" /><br /><br />
     Password:<br />
     <input type="password" name="password" value="" /><br /><br />
-    <input type="submit" name="submit" value="Submit"  />
+    <input class="submit" type="submit" name="submit" value="Submit"  />
   </form>
-  <br />
-  <a href="./../index.php">Home</a>
-  <br />
-  <br />
-  <a href="./logout.php">Logout</a>
-  <br />
-  <br />
-  <a href="./registration.php">Registration</a>
+
+  <hr />
+
+  <div id="outer">
+      <br />
+    <a class="inner" href="./../index.php">Home</a>
+      <br /> <br />
+    <!-- <a class="inner" href="./logout.php">Logout</a> -->
+      <br /> <br />
+    <a class="inner" href="./registration.php">Registration</a>
+  </div>
 </div>
 
 <?php include(SHARED_PATH . '/staff_footer.php'); ?>

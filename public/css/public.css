@@ -134,7 +134,7 @@ table#inventory tr th {
 table#inventory tr td,
 table#inventory tr th {
   border: 1px solid #000;
-  padding: 3px;
+  padding: 5px;
 }
 
 .detail dl {

@@ -6,6 +6,7 @@ if(!isset($user)) {
 }
 ?>
 
+<div class="form-fields">
 <dl>
   <dt>First name</dt>
   <dd><input type="text" name="user[first_name]" value="<?php echo h($user->get_user_first_name()); ?>" /></dd>
@@ -45,3 +46,4 @@ if(!isset($user)) {
   <dt>Verification code</dt>
   <dd><input name="vcode" type="text" value="" /></dd>
 </dl>
+</div>

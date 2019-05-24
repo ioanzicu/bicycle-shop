@@ -12,7 +12,8 @@
     <header>
       <h1>
         <a href="<?php echo url_for('/index.php'); ?>">
-          <img class="bike-icon" src="<?php echo url_for('/images/bicycle-icon.png') ?>" /><br />
+          <img class="bike-icon" src="<?php echo url_for('/images/bicycle-icon.png') ?>" />
+          <br />
           Iro's Bicycle Warehouse
         </a>
       </h1>

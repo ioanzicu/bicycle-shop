@@ -8,11 +8,11 @@
 <div id="content">
   <div id="main-menu">
     <h2>Main Menu</h2>
-    <ul>
-      <li><a href="<?php echo url_for('/staff/content/index.php'); ?>">Bicycles</a></li>
-      <li><a href="<?php echo url_for('/staff/admins/index.php'); ?>">Admins</a></li>
-      <li><a href="<?php echo url_for('/staff/users/index.php'); ?>">Users</a></li>
-      <li><a href="<?php echo url_for('./../index.php'); ?>">Home</a></li>
+    <ul class="outer">
+      <a href="<?php echo url_for('/staff/content/index.php'); ?>"><li class="inner">Bicycles</li></a>
+      <a href="<?php echo url_for('/staff/admins/index.php'); ?>"><li class="inner">Admins</li></a>
+      <a href="<?php echo url_for('/staff/users/index.php'); ?>"><li class="inner">Users</li></a>
+      <a href="<?php echo url_for('./../index.php'); ?>"><li class="inner">Home</li></a>
     </ul>
   </div>
 
