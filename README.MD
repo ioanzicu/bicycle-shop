@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Bicycle shop
  A project made using vanilla PHP, MySQL , HTML, CSS.
 
