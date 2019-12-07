@@ -1,6 +1,7 @@
 <?php
-  if(!isset($page_title)) { $page_title = 'Staff Area'; }
-?>
+if (!isset($page_title)) {
+    $page_title = 'Staff Area';
+} ?>
 
 <!doctype html>
 
@@ -8,7 +9,9 @@
   <head>
     <title>Iro's Bicycle Warehouse - <?php echo h($page_title); ?></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" media="all" href="<?php echo url_for('/css/staff.css'); ?>" />
+    <link rel="stylesheet" media="all" href="<?php echo url_for(
+        '/css/staff.css'
+    ); ?>" />
   </head>
 
   <body onLoad="backButtonOverride()">
@@ -24,14 +27,21 @@
     <navigation>
 
       <ul>
-        <?php if($session->is_logged_in()) { ?>
+        <?php
+        if ($session->is_logged_in()) { ?>
         <li>Admin: <b><?php echo $session->get_username(); ?></b></li>
         <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
-        <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Logout</a></li>
-      <?php } if($cookie->is_logged_in()) { ?>
+        <li><a href="<?php echo url_for(
+            '/staff/logout.php'
+        ); ?>">Logout</a></li>
+      <?php }
+        if ($cookie->is_logged_in()) { ?>
         <li>User: <?php echo $cookie->get_username(); ?></li>
-        <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Logout</a></li>
-        <?php } ?>
+        <li><a href="<?php echo url_for(
+            '/staff/logout.php'
+        ); ?>">Logout</a></li>
+        <?php }
+        ?>
       </ul>
 
     </navigation>

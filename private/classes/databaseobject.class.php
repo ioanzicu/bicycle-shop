@@ -1,27 +1,30 @@
 <?php
 
-class DatabaseObject {
+class DatabaseObject
+{
+    protected static $database;
+    protected static $table_name = "";
+    protected static $columns = [];
+    protected $errors = [];
 
-  static protected $database;
-  static protected $table_name = "";
-  static protected $columns = [];
-  protected $errors = [];
+    public static function set_database($database)
+    {
+        self::$database = $database;
+    }
 
-  static public function set_database($database) {
-    self::$database = $database;
-  }
+    public function get_errors()
+    {
+        return $this->errors;
+    }
 
-  public function get_errors() {
-    return $this->errors;
-  }
+    protected function validate()
+    {
+        $this->errors = [];
 
-  protected function validate() {
-    $this->errors = [];
+        // Add custom validations
 
-    // Add custom validations
-
-    return $this->errors;
-  }
+        return $this->errors;
+    }
 }
 
 ?>

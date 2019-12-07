@@ -7,6 +7,5 @@
 </body>
 </html>
 
-<?php
-  db_disconnect($database);
+<?php db_disconnect($database);
 ?>

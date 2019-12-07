@@ -1,21 +1,22 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once '../../../private/initialize.php'; ?>
 <?php require_admin_login(); ?>
 
 <?php
-
 $id = $_GET['id'] ?? 1; // PHP > 7.0
-if(!$user = User::find_by_id($id)){
-  redirect_to('./../../not_found.php');
-  error_404();
+if (!($user = User::find_by_id($id))) {
+    redirect_to('./../../not_found.php');
+    error_404();
 } else {
-?>
+     ?>
 
 <?php $page_title = 'Show User: ' . h($user->full_name()); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include SHARED_PATH . '/staff_header.php'; ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/users/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for(
+      '/staff/users/index.php'
+  ); ?>">&laquo; Back to List</a>
 
   <div class="admin show">
 
@@ -50,4 +51,4 @@ if(!$user = User::find_by_id($id)){
 
 <?php
 }
-?>
+ ?>

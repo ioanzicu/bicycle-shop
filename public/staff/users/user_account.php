@@ -1,15 +1,15 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once '../../../private/initialize.php'; ?>
 
 <?php require_user_login(); ?>
 <?php $page_title = 'User Account'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include SHARED_PATH . '/staff_header.php'; ?>
 <?php
 $id = $_COOKIE['user_id'];
-if(!$user = User::find_by_id($id)){
-  redirect_to('./../../not_found.php');
-  error_404();
+if (!($user = User::find_by_id($id))) {
+    redirect_to('./../../not_found.php');
+    error_404();
 } else {
-?>
+     ?>
 
 <div id="content">
 	<div id="main-menu">
@@ -45,7 +45,9 @@ if(!$user = User::find_by_id($id)){
 			</div>
 			
 			<div id="outer">
-				<a class="inner" href="<?php echo url_for('/staff/users/content/index.php'); ?>">Bicycles</a>
+				<a class="inner" href="<?php echo url_for(
+        '/staff/users/content/index.php'
+    ); ?>">Bicycles</a>
 				<br />
 				<a class="inner" href="./user_edit.php">Edit</a>
 				<br />
@@ -56,7 +58,7 @@ if(!$user = User::find_by_id($id)){
 	</div>
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include SHARED_PATH . '/staff_footer.php'; ?>
 <?php
 }
-?>
+ ?>

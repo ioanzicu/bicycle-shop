@@ -1,22 +1,23 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once '../../../private/initialize.php'; ?>
 <?php require_admin_login(); ?>
 
 <?php
-
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 $id = (int) test_input($id);
-if(!$bicycle = Content::find_by_id($id)){
-  redirect_to('./../../not_found.php');
-  error_404();
+if (!($bicycle = Content::find_by_id($id))) {
+    redirect_to('./../../not_found.php');
+    error_404();
 } else {
-?>
+     ?>
 
 <?php $page_title = 'Show Bicycle: ' . h($bicycle->name()); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include SHARED_PATH . '/staff_header.php'; ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/content/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for(
+      '/staff/content/index.php'
+  ); ?>">&laquo; Back to List</a>
 
   <div class="bicycle show">
 
@@ -49,7 +50,9 @@ if(!$bicycle = Content::find_by_id($id)){
       </dl>
       <dl>
         <dt>Weight</dt>
-        <dd><?php echo h($bicycle->weight_kg()) . ' / ' . h($bicycle->weight_lbs()); ?></dd>
+        <dd><?php echo h($bicycle->weight_kg()) .
+            ' / ' .
+            h($bicycle->weight_lbs()); ?></dd>
       </dl>
       <dl>
         <dt>Condition</dt>
@@ -57,7 +60,9 @@ if(!$bicycle = Content::find_by_id($id)){
       </dl>
       <dl>
         <dt>Price</dt>
-        <dd><?php echo h(money_format('$%i', $bicycle->get_content_price())); ?></dd>
+        <dd><?php echo h(
+            money_format('$%i', $bicycle->get_content_price())
+        ); ?></dd>
       </dl>
       <dl>
         <dt>Author</dt>
@@ -75,4 +80,4 @@ if(!$bicycle = Content::find_by_id($id)){
 
 <?php
 }
-?>
+ ?>

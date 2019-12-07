@@ -1,21 +1,20 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once '../../../private/initialize.php'; ?>
 <?php require_admin_login(); ?>
 
-<?php
-
+<?php // Find all admins
 // Find all admins
-$admins = Admin::find_all();
-
-?>
+?>$admins = Admin::find_all(); ?>
 <?php $page_title = 'Admins'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include SHARED_PATH . '/staff_header.php'; ?>
 
 <div id="content">
   <div class="admins listing">
     <h1>Admins</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/staff/admins/new.php'); ?>">Add Admin</a>
+      <a class="action" href="<?php echo url_for(
+          '/staff/admins/new.php'
+      ); ?>">Add Admin</a>
     </div>
 
   	<table class="list">
@@ -30,16 +29,22 @@ $admins = Admin::find_all();
         <th>&nbsp;</th>
       </tr>
 
-      <?php foreach($admins as $admin) { ?>
+      <?php foreach ($admins as $admin) { ?>
         <tr>
           <td><?php echo h($admin->get_admin_id()); ?></td>
           <td><?php echo h($admin->get_admin_first_name()); ?></td>
           <td><?php echo h($admin->get_admin_last_name()); ?></td>
           <td><?php echo h($admin->get_admin_email()); ?></td>
           <td><?php echo h($admin->get_admin_username()); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/admins/show.php?id=' . h(u($admin->get_admin_id()))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($admin->get_admin_id()))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/admins/delete.php?id=' . h(u($admin->get_admin_id()))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for(
+              '/staff/admins/show.php?id=' . h(u($admin->get_admin_id()))
+          ); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for(
+              '/staff/admins/edit.php?id=' . h(u($admin->get_admin_id()))
+          ); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for(
+              '/staff/admins/delete.php?id=' . h(u($admin->get_admin_id()))
+          ); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
@@ -48,4 +53,4 @@ $admins = Admin::find_all();
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include SHARED_PATH . '/staff_footer.php'; ?>

@@ -2,9 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>Iro's Bicycle Warehouse <?php if(isset($page_title)) { echo '- ' . h($page_title); } ?></title>
+    <title>Iro's Bicycle Warehouse <?php if (isset($page_title)) {
+        echo '- ' . h($page_title);
+    } ?></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" media="all" href="<?php echo url_for('/css/public.css'); ?>" />
+    <link rel="stylesheet" media="all" href="<?php echo url_for(
+        '/css/public.css'
+    ); ?>" />
   </head>
 
   <body>
@@ -12,7 +16,9 @@
     <header>
       <h1>
         <a href="<?php echo url_for('/index.php'); ?>">
-          <img class="bike-icon" src="<?php echo url_for('/images/bicycle-icon.png') ?>" />
+          <img class="bike-icon" src="<?php echo url_for(
+              '/images/bicycle-icon.png'
+          ); ?>" />
           <br />
           Iro's Bicycle Warehouse
         </a>
