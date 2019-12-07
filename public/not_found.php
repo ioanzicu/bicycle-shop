@@ -1,5 +1,1 @@
-<?php
-
-echo "ERROR 404 - Page Not Found";
-
-?>
+<?php echo "ERROR 404 - Page Not Found"; ?>

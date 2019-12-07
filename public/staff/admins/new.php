@@ -2,20 +2,20 @@
 <?php require_admin_login(); ?>
 
 <?php if (is_post_request()) {
-    // Create record using post parameters
-    $args = $_POST['admin'];
-    $admin = new Admin($args);
-    $result = $admin->save();
-    if ($result === true) {
-        $new_id = $admin->get_admin_id();
-        $session->message('The admin was created successfully.');
-        redirect_to(url_for('/staff/admins/show.php?id=' . $new_id));
-    } else {
-        // show errors
-    }
+  // Create record using post parameters
+  $args = $_POST['admin'];
+  $admin = new Admin($args);
+  $result = $admin->save();
+  if ($result === true) {
+    $new_id = $admin->get_admin_id();
+    $session->message('The admin was created successfully.');
+    redirect_to(url_for('/staff/admins/show.php?id=' . $new_id));
+  } else {
+    // show errors
+  }
 } else {
-    // display the form
-    $admin = new Admin();
+  // display the form
+  $admin = new Admin();
 } ?>
 
 <?php $page_title = 'Create Admin'; ?>
@@ -23,30 +23,30 @@
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for(
-      '/staff/admins/index.php'
-  ); ?>">&laquo; Back to List</a>
+    <a class="back-link" href="<?php echo url_for(
+                                '/staff/admins/index.php'
+                              ); ?>">&laquo; Back to List</a>
 
-  <div class="admin new">
-    <h1>Create Admin</h1>
+    <div class="admin new">
+        <h1>Create Admin</h1>
 
-    <?php
+        <?php
     echo display_errors($admin->get_errors());
     $edit = false;
     ?>
 
-    <form action="<?php echo url_for(
-        '/staff/admins/new.php'
-    ); ?>" method="post">
+        <form action="<?php echo url_for(
+                    '/staff/admins/new.php'
+                  ); ?>" method="post">
 
-      <?php include 'form_fields.php'; ?>
+            <?php include 'form_fields.php'; ?>
 
-      <div id="operations">
-        <input type="submit" value="Create Admin" />
-      </div>
-    </form>
+            <div id="operations">
+                <input type="submit" value="Create Admin" />
+            </div>
+        </form>
 
-  </div>
+    </div>
 
 </div>
 

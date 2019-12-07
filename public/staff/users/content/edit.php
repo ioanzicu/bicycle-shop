@@ -4,29 +4,28 @@ require_once('../../../../private/initialize.php');
 
 require_user_login();
 
-if(!isset($_GET['id'])) {
+if (!isset($_GET['id'])) {
   redirect_to(url_for('/staff/users/content/index.php'));
 }
 $id = $_GET['id'];
 $bicycle = Content::find_by_id($id);
-if($bicycle == false) {
+if ($bicycle == false) {
   redirect_to(url_for('/staff/users/content/index.php'));
 }
 
-if(is_post_request()) {
+if (is_post_request()) {
 
   // Save record using post parameters
   $args = $_POST['bicycle'];
   $bicycle->merge_attributes($args);
   $result = $bicycle->save();
 
-  if($result === true) {
+  if ($result === true) {
     $session->message('The bicycle was updated successfully.');
     redirect_to(url_for('/staff/users/content/show.php?id=' . $id));
   } else {
     // show errors
   }
-
 } else {
 
   // display the form
@@ -40,23 +39,23 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/users/content/index.php'); ?>">&laquo; Back to List</a>
+    <a class="back-link" href="<?php echo url_for('/staff/users/content/index.php'); ?>">&laquo; Back to List</a>
 
-  <div class="bicycle edit">
-    <h1>Edit Bicycle</h1>
+    <div class="bicycle edit">
+        <h1>Edit Bicycle</h1>
 
-    <?php echo display_errors($bicycle->get_errors()); ?>
+        <?php echo display_errors($bicycle->get_errors()); ?>
 
-    <form action="<?php echo url_for('/staff/users/content/edit.php?id=' . h(u($id))); ?>" method="post">
+        <form action="<?php echo url_for('/staff/users/content/edit.php?id=' . h(u($id))); ?>" method="post">
 
-      <?php include('form_fields.php'); ?>
+            <?php include('form_fields.php'); ?>
 
-      <div id="operations">
-        <input type="submit" value="Edit Bicycle" />
-      </div>
-    </form>
+            <div id="operations">
+                <input type="submit" value="Edit Bicycle" />
+            </div>
+        </form>
 
-  </div>
+    </div>
 
 </div>
 

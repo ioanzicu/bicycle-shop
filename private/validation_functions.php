@@ -127,5 +127,4 @@ function has_valid_email_format($value)
 //     return false;
 //   }
 // }
-
 ?>

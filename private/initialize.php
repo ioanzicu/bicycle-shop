@@ -62,5 +62,3 @@ DatabaseObject::set_database($database);
 $session = new Session();
 $cookie = new Cookie();
 $logged = true;
-
-?>

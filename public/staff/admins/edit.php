@@ -5,28 +5,28 @@ require_once '../../../private/initialize.php';
 require_admin_login();
 
 if (!isset($_GET['id'])) {
-    redirect_to(url_for('/staff/admins/index.php'));
+  redirect_to(url_for('/staff/admins/index.php'));
 }
 $id = $_GET['id'];
 $admin = Admin::find_by_id($id);
 if ($admin == false) {
-    redirect_to(url_for('/staff/admins/index.php'));
+  redirect_to(url_for('/staff/admins/index.php'));
 }
 
 if (is_post_request()) {
-    // Save record using post parameters
-    $args = $_POST['admin'];
-    $admin->merge_attributes($args);
-    $result = $admin->save();
+  // Save record using post parameters
+  $args = $_POST['admin'];
+  $admin->merge_attributes($args);
+  $result = $admin->save();
 
-    if ($result === true) {
-        $session->message('The admin was updated successfully.');
-        redirect_to(url_for('/staff/admins/show.php?id=' . $id));
-    } else {
-        // show errors
-    }
+  if ($result === true) {
+    $session->message('The admin was updated successfully.');
+    redirect_to(url_for('/staff/admins/show.php?id=' . $id));
+  } else {
+    // show errors
+  }
 } else {
-    // display the form
+  // display the form
 }
 ?>
 
@@ -35,32 +35,32 @@ if (is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for(
-      './staff/admins/index.php'
-  ); ?>">&laquo; Back to List</a>
+    <a class="back-link" href="<?php echo url_for(
+                                './staff/admins/index.php'
+                              ); ?>">&laquo; Back to List</a>
 
-  <div class="admin edit">
-    <h1>Edit Admin</h1>
+    <div class="admin edit">
+        <h1>Edit Admin</h1>
 
-    <?php
+        <?php
     echo display_errors($admin->get_errors());
     $edit = true;
     ?>
 
-    <form action="<?php echo url_for(
-        '/staff/admins/edit.php?id=' . h(u($id))
-    ); ?>" method="post">
+        <form action="<?php echo url_for(
+                    '/staff/admins/edit.php?id=' . h(u($id))
+                  ); ?>" method="post">
 
-      <?php include './form_fields.php'; ?>
+            <?php include './form_fields.php'; ?>
 
-      <div id="operations">
-        <input type="submit" value="Edit Admin" />
-      </div>
-    </form>
+            <div id="operations">
+                <input type="submit" value="Edit Admin" />
+            </div>
+        </form>
 
-    <?php $edit = false; ?>
+        <?php $edit = false; ?>
 
-  </div>
+    </div>
 
 </div>
 

@@ -25,9 +25,7 @@ class Session
             // prevent session fixation attacks
             session_regenerate_id();
             $this->admin_id = $_SESSION['admin_id'] = $admin->get_admin_id();
-            $this->username = $_SESSION[
-                'username'
-            ] = $admin->get_admin_username();
+            $this->username = $_SESSION['username'] = $admin->get_admin_username();
             $this->last_login = $_SESSION['last_login'] = time();
         }
         return true;

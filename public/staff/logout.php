@@ -8,6 +8,4 @@ unset($session);
 $cookie->logout();
 unset($cookie);
 
-redirect_to(url_for('/staff/login.php'));
-
-?>
+redirect_to(url_for('/staff/login.php')); ?>

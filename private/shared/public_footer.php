@@ -1,25 +1,24 @@
+<?php if (isset($super_hero_image)) { ?>
 
-  <?php if (isset($super_hero_image)) { ?>
-
-    <div class="expanding-wrapper">
+<div class="expanding-wrapper">
     <!-- <div> -->
-      <?php $image_url = url_for('/images/' . $super_hero_image); ?>
-      <img id="super-hero-image" src="<?php echo $image_url; ?>" />
-      <footer>
-        <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
-      </footer>
-    </div>
-
-  <?php } else { ?>
-
+    <?php $image_url = url_for('/images/' . $super_hero_image); ?>
+    <img id="super-hero-image" src="<?php echo $image_url; ?>" />
     <footer>
-      <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
+        <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
     </footer>
+</div>
 
-  <?php } ?>
+<?php } else { ?>
 
-  </body>
+<footer>
+    <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
+</footer>
+
+<?php } ?>
+
+</body>
+
 </html>
 
-<?php db_disconnect($database);
-?>
+<?php db_disconnect($database); ?>

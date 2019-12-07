@@ -6,43 +6,43 @@ $username = '';
 $password = '';
 
 if (is_post_request()) {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+  $username = $_POST['username'] ?? '';
+  $password = $_POST['password'] ?? '';
 
-    // Validations
-    if (is_blank($username)) {
-        $errors[] = "Username cannot be blank.";
-    }
-    if (is_blank($password)) {
-        $errors[] = "Password cannot be blank.";
-    }
+  // Validations
+  if (is_blank($username)) {
+    $errors[] = "Username cannot be blank.";
+  }
+  if (is_blank($password)) {
+    $errors[] = "Password cannot be blank.";
+  }
 
-    // if there were no errors, try to login
-    if (empty($errors)) {
-        if ($admin = Admin::find_by_username($username)) {
-            // test if admin found and password is correct
-            if ($admin != false && $admin->verify_password($password)) {
-                // Mark admin as logged in
-                $session->login($admin);
-                redirect_to(url_for('/staff/index.php'));
-            } else {
-                // username not found or password does not match
-                $errors[] = "Log in was unsuccessful.";
-            }
-        } else {
-            // test if user found and password is correct
-            $user = User::find_by_username($username);
-            // test if admin found and password is correct
-            if ($user != false && $user->verify_password($password)) {
-                // Mark admin as logged in
-                $cookie->login($user);
-                redirect_to(url_for('/staff/users/user_account.php'));
-            } else {
-                // username not found or password does not match
-                $errors[] = "Log in was unsuccessful.";
-            }
-        }
+  // if there were no errors, try to login
+  if (empty($errors)) {
+    if ($admin = Admin::find_by_username($username)) {
+      // test if admin found and password is correct
+      if ($admin != false && $admin->verify_password($password)) {
+        // Mark admin as logged in
+        $session->login($admin);
+        redirect_to(url_for('/staff/index.php'));
+      } else {
+        // username not found or password does not match
+        $errors[] = "Log in was unsuccessful.";
+      }
+    } else {
+      // test if user found and password is correct
+      $user = User::find_by_username($username);
+      // test if admin found and password is correct
+      if ($user != false && $user->verify_password($password)) {
+        // Mark admin as logged in
+        $cookie->login($user);
+        redirect_to(url_for('/staff/users/user_account.php'));
+      } else {
+        // username not found or password does not match
+        $errors[] = "Log in was unsuccessful.";
+      }
     }
+  }
 }
 ?>
 
@@ -52,42 +52,43 @@ if (is_post_request()) {
 <!-- Prevent the user to logout clicking back button on the browser,
 without deleting the session or cookie -->
 <script type="text/javascript">
-  function backButtonOverride() {
+function backButtonOverride() {
     setTimeout("backButtonOverrideBody()", 1);
-  }
-  function backButtonOverrideBody() {
+}
+
+function backButtonOverrideBody() {
     try {
-      history.forward();
+        history.forward();
     } catch (e) {}
-    setTimeout("backButtonOverrideBody()",50);
-  }
+    setTimeout("backButtonOverrideBody()", 50);
+}
 </script>
 
 <div id="content">
-  <h1 class="center-text">Log in</h1>
+    <h1 class="center-text">Log in</h1>
 
-  <?php echo display_errors($errors); ?>
+    <?php echo display_errors($errors); ?>
 
-  <form class="form" action="login.php" method="post">
-    Username:<br />
-    <input type="text" name="username" value="<?php echo h(
-        $username
-    ); ?>" /><br /><br />
-    Password:<br />
-    <input type="password" name="password" value="" /><br /><br />
-    <input class="submit" type="submit" name="submit" value="Submit"  />
-  </form>
+    <form class="form" action="login.php" method="post">
+        Username:<br />
+        <input type="text" name="username" value="<?php echo h(
+                                                $username
+                                              ); ?>" /><br /><br />
+        Password:<br />
+        <input type="password" name="password" value="" /><br /><br />
+        <input class="submit" type="submit" name="submit" value="Submit" />
+    </form>
 
-  <hr />
+    <hr />
 
-  <div id="outer">
-      <br />
-    <a class="inner" href="./../index.php">Home</a>
-      <br /> <br />
-    <!-- <a class="inner" href="./logout.php">Logout</a> -->
-      <br /> <br />
-    <a class="inner" href="./registration.php">Registration</a>
-  </div>
+    <div id="outer">
+        <br />
+        <a class="inner" href="./../index.php">Home</a>
+        <br /> <br />
+        <!-- <a class="inner" href="./logout.php">Logout</a> -->
+        <br /> <br />
+        <a class="inner" href="./registration.php">Registration</a>
+    </div>
 </div>
 
 <?php include SHARED_PATH . '/staff_footer.php'; ?>

@@ -3,22 +3,21 @@
 require_once('../../../../private/initialize.php');
 require_user_login();
 
-if(!isset($_GET['id'])) {
+if (!isset($_GET['id'])) {
   redirect_to(url_for('/staff/users/content/index.php'));
 }
 $id = $_GET['id'];
 $bicycle = Content::find_by_id($id);
-if($bicycle == false) {
+if ($bicycle == false) {
   redirect_to(url_for('/staff/users/content/index.php'));
 }
 
-if(is_post_request()) {
+if (is_post_request()) {
 
   // Delete bicycle
   $result = $bicycle->delete();
   $session->message('The bicycle was deleted successfully.');
   redirect_to(url_for('/staff/users/content/index.php'));
-
 } else {
   // Display form
 }
@@ -30,19 +29,19 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/users/content/index.php'); ?>">&laquo; Back to List</a>
+    <a class="back-link" href="<?php echo url_for('/staff/users/content/index.php'); ?>">&laquo; Back to List</a>
 
-  <div class="bicycle delete">
-    <h1>Delete Bicycle</h1>
-    <p>Are you sure you want to delete this bicycle?</p>
-    <p class="item"><?php echo h($bicycle->name()); ?></p>
+    <div class="bicycle delete">
+        <h1>Delete Bicycle</h1>
+        <p>Are you sure you want to delete this bicycle?</p>
+        <p class="item"><?php echo h($bicycle->name()); ?></p>
 
-    <form action="<?php echo url_for('/staff/users/content/delete.php?id=' . h(u($id))); ?>" method="post">
-      <div id="operations">
-        <input type="submit" name="commit" value="Delete Bicycle" />
-      </div>
-    </form>
-  </div>
+        <form action="<?php echo url_for('/staff/users/content/delete.php?id=' . h(u($id))); ?>" method="post">
+            <div id="operations">
+                <input type="submit" name="commit" value="Delete Bicycle" />
+            </div>
+        </form>
+    </div>
 
 </div>
 

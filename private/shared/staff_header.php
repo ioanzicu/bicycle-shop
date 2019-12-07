@@ -1,48 +1,51 @@
 <?php
 if (!isset($page_title)) {
-    $page_title = 'Staff Area';
+  $page_title = 'Staff Area';
 } ?>
 
 <!doctype html>
 
 <html lang="en">
-  <head>
+
+<head>
     <title>Iro's Bicycle Warehouse - <?php echo h($page_title); ?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" media="all" href="<?php echo url_for(
-        '/css/staff.css'
-    ); ?>" />
-  </head>
+                                              '/css/staff.css'
+                                            ); ?>" />
+</head>
 
-  <body onLoad="backButtonOverride()">
+<body onLoad="backButtonOverride()">
     <header>
-      <h1>
-        <a href="/projects/content-iro-php-master/public/index.php" style="text-decoration: none;
-  color: white;">
-          Iro's Bicycle Warehouse Staff Area
-        </a>
-      </h1>
+        <h1>
+            <a href="
+            <?php echo url_for(
+              '/index.php'
+            ); ?>" style="text-decoration: none; color: white;">
+                Iro's Bicycle Warehouse Staff Area
+            </a>
+        </h1>
     </header>
 
     <navigation>
 
-      <ul>
-        <?php
-        if ($session->is_logged_in()) { ?>
-        <li>Admin: <b><?php echo $session->get_username(); ?></b></li>
-        <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
-        <li><a href="<?php echo url_for(
-            '/staff/logout.php'
-        ); ?>">Logout</a></li>
-      <?php }
-        if ($cookie->is_logged_in()) { ?>
-        <li>User: <?php echo $cookie->get_username(); ?></li>
-        <li><a href="<?php echo url_for(
-            '/staff/logout.php'
-        ); ?>">Logout</a></li>
-        <?php }
-        ?>
-      </ul>
+        <ul>
+            <?php
+      if ($session->is_logged_in()) { ?>
+            <li>Admin: <b><?php echo $session->get_username(); ?></b></li>
+            <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
+            <li><a href="<?php echo url_for(
+                          '/staff/logout.php'
+                        ); ?>">Logout</a></li>
+            <?php }
+      if ($cookie->is_logged_in()) { ?>
+            <li>User: <?php echo $cookie->get_username(); ?></li>
+            <li><a href="<?php echo url_for(
+                          '/staff/logout.php'
+                        ); ?>">Logout</a></li>
+            <?php }
+      ?>
+        </ul>
 
     </navigation>
 
