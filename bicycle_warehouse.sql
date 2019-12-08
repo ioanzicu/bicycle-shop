@@ -92,6 +92,9 @@ CREATE TABLE `users` (
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `avatar` varchar(255) DEFAULT 'images/default.jpg',
+  `provider` varchar(255) DEFAULT NULL,
+  `provider_id` varchar(255) DEFAULT NULL,
   `hashed_password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -101,11 +104,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `username`, `hashed_password`, `created_at`) VALUES
-(1, 'Ersten', 'Nutzer', 'ersten@nu.mail', 'ersten-nutzer', 'Aa?1111111111', '2018-08-21 00:57:30'),
-(3, 'Dritten', 'Nutezer', 'dritten@nutz.com', 'dritten-nuzter', '$2y$10$uiROAfJsZmMSa4JANLSm/uQiZ79Y18Om7XaITmT077aAk79ofYCXm', '2018-08-22 04:22:00'),
-(44, 'Zweitenscs', 'asdaerge', 'ersten@nu.ma', 'aoaoaoaoa', '$2y$10$n5IbfKRpreX1Z8bDqRYLqe306YwtU4hyDXpVF2TpKpQXYd3jiGGee', '2018-08-24 05:25:42'),
-(45, 'Pawel', 'Rotar', 'pawel.rotar@gmail.com', 'pawel.rotar', '$2y$10$uUDrDBNrBewe1QR2mWk/E.nGwGNgEeRkaH8.NDPDTT.5yjAffKuDS', '2019-05-17 20:56:08'),
-(46, 'temp', 'user', 'temp.user@gmail.com', 'temp.user', '$2y$10$p.AC1mOS81lc1UQ.uJHa7eBLQTXNdVwnzN0MJeLk/F75I2IqOUY7S', '2019-05-17 21:03:39');
+(1, 'Ersten', 'Nutzer', 'ersten@nu.mail', 'ersten-nutzer', 'images/default.jpg', NULL, NULL, 'Aa?1111111111', '2018-08-21 00:57:30'),
+(2, 'Dritten', 'Nutezer', 'dritten@nutz.com', 'dritten-nuzter', 'images/default.jpg', NULL, NULL, '$2y$10$uiROAfJsZmMSa4JANLSm/uQiZ79Y18Om7XaITmT077aAk79ofYCXm', '2018-08-22 04:22:00'),
+(3, 'Zweitenscs', 'asdaerge', 'ersten@nu.ma', 'aoaoaoaoa', 'images/default.jpg', NULL, NULL, '$2y$10$n5IbfKRpreX1Z8bDqRYLqe306YwtU4hyDXpVF2TpKpQXYd3jiGGee', '2018-08-24 05:25:42'),
+(4, 'Pawel', 'Rotar', 'pawel.rotar@gmail.com', 'pawel.rotar', 'images/default.jpg', NULL, NULL, '$2y$10$uUDrDBNrBewe1QR2mWk/E.nGwGNgEeRkaH8.NDPDTT.5yjAffKuDS', '2019-05-17 20:56:08'),
+(5, 'temp', 'user', 'temp.user@gmail.com', 'temp.user', 'images/default.jpg', NULL, NULL, '$2y$10$p.AC1mOS81lc1UQ.uJHa7eBLQTXNdVwnzN0MJeLk/F75I2IqOUY7S', '2019-05-17 21:03:39');
 
 --
 -- Indexes for dumped tables
