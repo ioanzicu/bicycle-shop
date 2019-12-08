@@ -103,7 +103,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `username`, `hashed_password`, `created_at`) VALUES
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `username`, `avatar`,`provider`,`provider_id`, `hashed_password`, `created_at`) VALUES
 (1, 'Ersten', 'Nutzer', 'ersten@nu.mail', 'ersten-nutzer', 'images/default.jpg', NULL, NULL, 'Aa?1111111111', '2018-08-21 00:57:30'),
 (2, 'Dritten', 'Nutezer', 'dritten@nutz.com', 'dritten-nuzter', 'images/default.jpg', NULL, NULL, '$2y$10$uiROAfJsZmMSa4JANLSm/uQiZ79Y18Om7XaITmT077aAk79ofYCXm', '2018-08-22 04:22:00'),
 (3, 'Zweitenscs', 'asdaerge', 'ersten@nu.ma', 'aoaoaoaoa', 'images/default.jpg', NULL, NULL, '$2y$10$n5IbfKRpreX1Z8bDqRYLqe306YwtU4hyDXpVF2TpKpQXYd3jiGGee', '2018-08-24 05:25:42'),

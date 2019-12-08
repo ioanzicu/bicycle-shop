@@ -22,6 +22,10 @@ if (!($user = User::find_by_id($id))) {
 
                 <div class="attributes">
                     <dl>
+                        <dt>User Avatar</dt>
+                        <img src='<?php echo h($user->get_user_avatar()); ?>' alt='avatar' />
+                    </dl>
+                    <dl>
                         <dt>First name</dt>
                         <dd><?php echo h($user->get_user_first_name()); ?></dd>
                     </dl>

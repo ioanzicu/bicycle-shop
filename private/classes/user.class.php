@@ -9,6 +9,7 @@ class User extends DatabaseObject
         'last_name',
         'email',
         'username',
+        'avatar',
         'hashed_password'
     ];
 
@@ -17,6 +18,7 @@ class User extends DatabaseObject
     private $last_name;
     private $email;
     private $username;
+    private $avatar;
     protected $hashed_password;
     private $created_at;
     private $password;
@@ -32,6 +34,7 @@ class User extends DatabaseObject
         $this->last_name = $args['last_name'] ?? '';
         $this->email = $args['email'] ?? '';
         $this->username = $args['username'] ?? '';
+        $this->avatar = $args['avatar'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->confirm_password = $args['confirm_password'] ?? '';
     }
@@ -59,6 +62,11 @@ class User extends DatabaseObject
     public function get_user_username()
     {
         return $this->username;
+    }
+
+    public function get_user_avatar() 
+    {
+        return $this->avatar;
     }
 
     public function get_user_created_at()
