@@ -45,7 +45,7 @@ $_SESSION['vcode'] = $first . $second . $third . $fourth;
 /*
  Add ABOSLUTE PATH TO THE FONTS located in ../public/font/.. 
 */
-$font = "/opt/lampp/htdocs/projects/content-iro-php-master/public/font/2.ttf";
+$font = "C:\Bitnami\wampstack-7.2.25-0\apache2\htdocs\bicycle-shop\public\\font\\2.ttf";
 
 imagettftext($image, 20, mt_rand(-20, 20), 10, 30, $black, $font, $first);
 imagettftext($image, 20, mt_rand(-20, 20), 30, 30, $black, $font, $second);
@@ -53,5 +53,3 @@ imagettftext($image, 20, mt_rand(-20, 20), 50, 30, $black, $font, $third);
 imagettftext($image, 20, mt_rand(-20, 20), 70, 30, $black, $font, $fourth);
 header("content-type:image/png");
 imagepng($image);
-
-?>

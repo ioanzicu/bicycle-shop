@@ -38,26 +38,23 @@ if (is_post_request()) {
 <?php $page_title = 'Create User'; ?>
 <?php include SHARED_PATH . '/staff_header.php'; ?>
 
-<div id="content">
+<div class="container">
 
     <a class="back-link" href="<?php echo url_for(
                                 './staff/login.php'
                               ); ?>">&laquo; Back to Login</a>
 
-    <div class="bicycle new">
-        <h1 class="center-text">Registration</h1>
-
+    <h1 class="center-text mb-3 mt-3">Registration</h1>
+    <div class="bicycle new border round ml-5 mr-5 mb-5 p-5">
         <?php echo display_errors($user->get_errors()); ?>
 
-        <form class="form" action="<?php echo url_for(
-                                  './staff/registration.php'
-                                ); ?>" method="post">
+        <form class="text-center" action="<?php echo url_for(
+                                        './staff/registration.php'
+                                      ); ?>" method="post">
 
             <?php include './form_fields.php'; ?>
 
-            <div id="operations">
-                <input class="submit" type="submit" value="Create User" />
-            </div>
+            <input class="submit btn btn-primary" type="submit" name="submit" value="Create User" />
         </form>
     </div>
 

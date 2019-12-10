@@ -88,7 +88,6 @@ function backButtonOverrideBody() {
             </div>
             <div class="col-4">
                 <a class="btn btn-secondary form-control" href="./registration.php">Registration</a>
-
             </div>
         </div>
     </form>
