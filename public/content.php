@@ -4,7 +4,7 @@
 <?php include SHARED_PATH . '/public_header.php'; ?>
 
 
-<div class="container">
+<div class="container mb-5">
     <div class="text-center pt-3">
         <h1>Our Inventory of Used Bicycles</h1>
         <p>Choose the bike you love.</p>

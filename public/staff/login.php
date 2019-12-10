@@ -64,31 +64,34 @@ function backButtonOverrideBody() {
 }
 </script>
 
-<div id="content">
-    <h1 class="center-text">Log in</h1>
-
+<div class="container align-center mb-4">
+    <h1 class="text-center mt-1">Log In
+    </h1>
+    <br />
     <?php echo display_errors($errors); ?>
+    <form action="login.php" method="post" class="border rounded p-4">
+        <div class="form-group col-6 mx-auto text-center">
+            <label for="usernameInput">Username:</label>
+            <input type="text" class="form-control" name="username" id="usernameInput" value="<?php echo h(
+                                                                                          $username
+                                                                                        ); ?>" />
+            <br />
+            <label for="passwordInput">Password:</label>
+            <input type="password" class="form-control" name="password" value="" id="passwordInput" />
+            <br />
+            <input class="submit btn btn-primary" type="submit" name="submit" value="Submit" />
+        </div>
+        <hr />
+        <div class="row justify-content-around">
+            <div class="col-4">
+                <a class="btn btn-secondary form-control" href=" ./../index.php">Home</a>
+            </div>
+            <div class="col-4">
+                <a class="btn btn-secondary form-control" href="./registration.php">Registration</a>
 
-    <form class="form" action="login.php" method="post">
-        Username:<br />
-        <input type="text" name="username" value="<?php echo h(
-                                                $username
-                                              ); ?>" /><br /><br />
-        Password:<br />
-        <input type="password" name="password" value="" /><br /><br />
-        <input class="submit" type="submit" name="submit" value="Submit" />
+            </div>
+        </div>
     </form>
-
-    <hr />
-
-    <div id="outer">
-        <br />
-        <a class="inner" href="./../index.php">Home</a>
-        <br /> <br />
-        <!-- <a class="inner" href="./logout.php">Logout</a> -->
-        <br /> <br />
-        <a class="inner" href="./registration.php">Registration</a>
-    </div>
 </div>
 
 <?php include SHARED_PATH . '/staff_footer.php'; ?>

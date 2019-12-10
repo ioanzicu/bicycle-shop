@@ -3,12 +3,12 @@ html {
   width: 100%;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 header {
@@ -231,7 +231,7 @@ hr {
 /* Footer */
 
 .copyright {
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
   color: white;
 }
