@@ -54,8 +54,11 @@ if (!isset($page_title)) {
                                                   '/favicon/ms-icon-144x144.png'
                                                 ); ?> ">
     <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" media="all" href="<?php echo url_for(
                                               '/css/staff.css'
                                             ); ?>" />

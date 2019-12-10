@@ -1,21 +1,16 @@
 <?php if (isset($super_hero_image)) { ?>
 
-<div class="expanding-wrapper">
-    <!-- <div> -->
+<div>
     <?php $image_url = url_for('/images/' . $super_hero_image); ?>
     <img id="super-hero-image" src="<?php echo $image_url; ?>" />
-    <footer>
-        <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
-    </footer>
 </div>
 
-<?php } else { ?>
+<?php } ?>
 
-<footer>
+<footer class="bg-dark text-white card">
     <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
 </footer>
 
-<?php } ?>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>

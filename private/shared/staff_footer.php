@@ -1,4 +1,4 @@
-<footer>
+<footer class="bg-dark text-white">
     <div class="copyright">
         &copy; <?php echo date('Y'); ?> Iro's Bicycle Warehouse
     </div>

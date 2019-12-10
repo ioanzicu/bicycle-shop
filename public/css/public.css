@@ -9,7 +9,8 @@ html {
 body {
   height: 100%;
   border: 0;
-  font: 15px/18px Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
   background: #ffffff;
 }
 
@@ -34,7 +35,6 @@ header h1 a {
 }
 
 #main {
-  /* width: 980px; */
   height: 500px;
   margin: 0 auto;
   padding: 0;
@@ -48,14 +48,6 @@ header h1 a {
 
 img#super-hero-image {
   width: 100%;
-}
-
-footer {
-  clear: both;
-  width: 980px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #ffffff;
 }
 
 ul#menu {
@@ -161,4 +153,8 @@ table#inventory tr th {
 
 .transform-color-case {
   text-transform: capitalize;
+}
+
+footer {
+  border-radius: 0 !important;
 }
