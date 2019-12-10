@@ -44,8 +44,8 @@ if (is_post_request()) {
                                 './staff/login.php'
                               ); ?>">&laquo; Back to Login</a>
 
-    <h1 class="center-text mb-3 mt-3">Registration</h1>
-    <div class="bicycle new border round ml-5 mr-5 mb-5 p-5">
+    <h1 class="center-text mt-3">Registration</h1>
+    <div class="bicycle new border round m-5 p-5">
         <?php echo display_errors($user->get_errors()); ?>
 
         <form class="text-center" action="<?php echo url_for(
