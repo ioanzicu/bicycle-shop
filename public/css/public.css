@@ -96,9 +96,7 @@ div#page p {
 }
 
 img.inset {
-  float: left;
-  width: 150px;
-  margin-right: 20px;
+  width: 13rem;
 }
 
 table#inventory {
@@ -135,23 +133,7 @@ table#inventory tr th {
   float: left;
 }
 
-.sort-button {
-  border: none;
-  margin: 10px;
-  color: white;
-  background-color: #0b61a5;
-  font-weight: 600;
-  text-transform: capitalize;
-  font-size: 1.2rem;
-  padding: 2px;
-}
-
-.sort-button:hover {
-  color: gold;
-  transition: color 0.5s;
-}
-
-.transform-color-case {
+.uppercase {
   text-transform: capitalize;
 }
 
