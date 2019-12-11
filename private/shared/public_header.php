@@ -82,7 +82,10 @@
                                     ); ?>">View Our Inventory </a>
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link" href="<?php echo url_for('/about.php'); ?>">About Us</a>
+                    <a class="nav-link" href="<?php echo url_for('/about.php'); ?>">About</a>
+                </li>
+                <li class="nav-item ml-5">
+                    <a class="nav-link" href="<?php echo url_for('/contacts.php'); ?>">Contacts</a>
                 </li>
                 <!-- ADMIN MENU BUTTON -->
                 <?php if (isset($_SESSION['username'])) : ?>

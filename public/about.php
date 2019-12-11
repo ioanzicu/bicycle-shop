@@ -4,7 +4,8 @@
 <?php include SHARED_PATH . '/public_header.php'; ?>
 
 
-<div class="about-bg-image align-middle">
+<div class="about-bg-image align-middle"></div>
+<div class="bg-text">
     <h1 class="pt-5 text-center">About Us</h1>
     <blockquote class="blockquote">
         <p class="pt-3 pr-5 pl-5 text-justify">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -18,6 +19,7 @@
             bottom before it leaves our shop. If you have questions, our
             expert staff has the knowledge and experience to advise you and to meet all of your cycling needs.</p>
     </blockquote>
+
 </div>
 
 <?php include SHARED_PATH . '/public_footer.php'; ?>
