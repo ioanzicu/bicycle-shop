@@ -1,5 +1,6 @@
 <?php
 require_once '../../private/initialize.php';
+require_once '../../private/fb-setup.php';
 
 $errors = [];
 $username = '';
@@ -79,12 +80,19 @@ function backButtonOverrideBody() {
             <label for="passwordInput">Password:</label>
             <input type="password" class="form-control" name="password" value="" id="passwordInput" />
             <br />
-            <input class="submit btn btn-primary" type="submit" name="submit" value="Submit" />
+            <input class="submit btn btn-info" type="submit" name="submit" value="Submit" />
+            <br />
+            OR
+            <br />
+            <!-- LOGIN WITH FACEBOOK -->
+            <!-- <a class="submit btn btn-primary" href="./fb-callback.php">Facebook</a> -->
+            <a class="submit btn btn-primary" href="<?php echo $callback_url; ?>">Facebook</a>
+
         </div>
         <hr class="mb-5" />
         <div class="row justify-content-around mb-2">
             <div class="col-4">
-                <a class="btn btn-secondary form-control" href=" ./../index.php">Home</a>
+                <a class="btn btn-secondary form-control" href="./../index.php">Home</a>
             </div>
             <div class="col-4">
                 <a class="btn btn-secondary form-control" href="./registration.php">Registration</a>

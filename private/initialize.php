@@ -21,6 +21,9 @@ $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
 $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
 define("WWW_ROOT", $doc_root);
 
+// Load vendors
+require_once PROJECT_PATH . '../vendor/autoload.php';
+
 require_once 'functions.php';
 require_once 'status_error_functions.php';
 require_once 'db_credentials.php';
@@ -62,6 +65,3 @@ DatabaseObject::set_database($database);
 $session = new Session();
 $cookie = new Cookie();
 $logged = true;
-
-// Load vendors
-require_once PROJECT_PATH . '../vendor/autoload.php';

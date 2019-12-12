@@ -1,6 +1,5 @@
 <?php
 require_once '../../../private/initialize.php';
-$config = require_once '../../../private/fb-config.php';
 ?>
 
 <?php require_admin_login(); ?>

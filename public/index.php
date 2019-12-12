@@ -1,6 +1,6 @@
 <?php
 require_once '../private/initialize.php';
-$config = require_once '../private/fb-config.php';
+// $config = require_once '../private/fb-config.php';
 ?>
 
 <?php include SHARED_PATH . '/public_header.php'; ?>
