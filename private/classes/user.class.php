@@ -37,6 +37,7 @@ class User extends DatabaseObject
         $this->avatar = $args['avatar'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->confirm_password = $args['confirm_password'] ?? '';
+        $this->captcha = $args['capthca'] ?? '';
     }
 
     public function get_user_id()
@@ -64,7 +65,7 @@ class User extends DatabaseObject
         return $this->username;
     }
 
-    public function get_user_avatar() 
+    public function get_user_avatar()
     {
         return $this->avatar;
     }
@@ -164,11 +165,11 @@ class User extends DatabaseObject
                 $this->errors[] = "Password and confirm password must match.";
             }
 
-            if (is_blank($this->captcha)) {
-                $this->errors[] = "Verification code cannot be blank.";
-            } elseif ($this->verify_captcha) {
-                $this->errors[] = "Captcha and verification code must match.";
-            }
+            // if (is_blank($this->captcha)) {
+            //     $this->errors[] = "Verification code cannot be blank.";
+            // } elseif ($this->verify_captcha) {
+            //     $this->errors[] = "Captcha and verification code must match.";
+            // }
         }
     }
 
@@ -363,5 +364,3 @@ class User extends DatabaseObject
         }
     }
 }
-
-?>

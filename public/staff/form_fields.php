@@ -50,7 +50,7 @@ if (!isset($user)) {
 <div class="form-group row">
     <label for="inputConfirmPassword" class="col-sm-2 col-form-label">Confirm Password:</label>
     <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputConfirmPassword" name="user[password]" value="" />
+        <input type="password" class="form-control" id="inputConfirmPassword" name="user[confirm_password]" value="" />
     </div>
 </div>
 

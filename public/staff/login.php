@@ -64,7 +64,7 @@ function backButtonOverrideBody() {
 }
 </script>
 
-<div class="container align-center mb-4">
+<div class="container align-center mb-5">
     <h1 class="text-center mt-1">Log In
     </h1>
     <br />
@@ -81,8 +81,8 @@ function backButtonOverrideBody() {
             <br />
             <input class="submit btn btn-primary" type="submit" name="submit" value="Submit" />
         </div>
-        <hr />
-        <div class="row justify-content-around">
+        <hr class="mb-5" />
+        <div class="row justify-content-around mb-2">
             <div class="col-4">
                 <a class="btn btn-secondary form-control" href=" ./../index.php">Home</a>
             </div>

@@ -88,10 +88,10 @@ if (!isset($page_title)) {
                         ); ?>">Logout</a></li>
             <?php }
       if ($cookie->is_logged_in()) { ?>
-            <li>User: <?php echo $cookie->get_username(); ?></li>
-            <li><a href="<?php echo url_for(
-                          '/staff/logout.php'
-                        ); ?>">Logout</a></li>
+            <li>Hello <?php echo $cookie->get_username(); ?>!</li>
+            <li><a class="submit btn btn-danger" href="<?php echo url_for(
+                                                        '/staff/logout.php'
+                                                      ); ?>">Logout</a></li>
             <?php }
       ?>
         </ul>

@@ -6,10 +6,10 @@
 <?php
 $id = $_COOKIE['user_id'];
 if (!($user = User::find_by_id($id))) {
-	redirect_to('./../../not_found.php');
-	error_404();
+    redirect_to('./../../not_found.php');
+    error_404();
 } else {
-	?>
+    ?>
 
 <div id="content">
     <div id="main-menu">
@@ -23,7 +23,8 @@ if (!($user = User::find_by_id($id))) {
                 <div class="attributes">
                     <dl>
                         <dt>User Avatar</dt>
-                        <img src='<?php echo h($user->get_user_avatar()); ?>' alt='avatar' />
+                        <dd><img src='<?php echo h($user->get_user_avatar()); ?>' alt='avatar' width="300px"
+                                height="300px" /> </dd>
                     </dl>
                     <dl>
                         <dt>First name</dt>
@@ -48,14 +49,12 @@ if (!($user = User::find_by_id($id))) {
                 </div>
             </div>
 
-            <div id="outer">
-                <a class="inner" href="<?php echo url_for(
-													'/staff/users/content/index.php'
-												); ?>">Bicycles</a>
-                <br />
-                <a class="inner" href="./user_edit.php">Edit</a>
-                <br />
-                <a class="inner" href="<?php echo url_for('./../index.php'); ?>">Home</a>
+            <div class="mb-5">
+                <a class="submit btn btn-info" href="<?php echo url_for(
+                                                                    '/staff/users/content/index.php'
+                                                                ); ?>">Bicycles</a>
+                <a class="submit btn btn-success" href="./user_edit.php">Edit</a>
+                <a class="submit btn btn-warning" href="<?php echo url_for('./../index.php'); ?>">Home</a>
             </div>
 
         </div>

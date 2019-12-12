@@ -30,14 +30,14 @@ if (is_post_request()) {
 <?php $page_title = 'Edit User'; ?>
 <?php include SHARED_PATH . '/staff_header.php'; ?>
 
-<div id="content">
+<div class="container">
 
-    <a class="back-link" href="<?php echo url_for(
-                                '/staff/users/user_account.php'
-                              ); ?>">&laquo; Back to Account</a>
+    <a class="submit btn btn-primary" href="<?php echo url_for(
+                                            '/staff/users/user_account.php'
+                                          ); ?>">&laquo; Back to Account</a>
 
-    <div class="user edit">
-        <h1>Edit User</h1>
+    <div class="user edit mb-3">
+        <h1 class="text-center">Edit User</h1>
 
         <?php echo display_errors($user->get_errors()); ?>
 
@@ -47,13 +47,10 @@ if (is_post_request()) {
 
             <?php include 'form_fields.php'; ?>
 
-            <div id="operations">
-                <input type="submit" value="Edit User" />
+            <div class="text-center">
+                <input type="submit" class="submit btn btn-success" value="Save Changes" />
             </div>
         </form>
-        <br>
-        <p><strong>Atention!!!:</strong> If you will change the <b>username</b>, the modification will work just after
-            next login.</p>
     </div>
 
 </div>
