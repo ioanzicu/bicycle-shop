@@ -40,9 +40,9 @@ if (is_post_request()) {
 
 <div class="container">
 
-    <a class="back-link" href="<?php echo url_for(
-                                './staff/login.php'
-                              ); ?>">&laquo; Back to Login</a>
+    <a class="submit btn btn-primary" href="<?php echo url_for(
+                                            './staff/login.php'
+                                          ); ?>">&laquo; Back to Login</a>
 
     <h1 class="center-text mt-3">Registration</h1>
     <div class="bicycle new border round m-5 p-5">

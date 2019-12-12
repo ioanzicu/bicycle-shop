@@ -12,10 +12,10 @@
                 <h1 class="pt-5 text-center">Contact Us</h1>
                 <blockquote class="blockquote">
                     <p class="pt-3 pr-5 pl-5 text-justify">
-                        Our Address is: Havelská 15, 120 01 Staré Město, Praga, Czech Republic
-                        <br />
+                        Address: Havelská 15, 120 01 Staré Město, Praga, Czech Republic
+                        <br /><br />
                         Email: iros.bicycle.warehouse@gmail.com
-                        <br />
+                        <br /><br />
                         Phone: +420 346 972 199
                 </blockquote>
             </div>

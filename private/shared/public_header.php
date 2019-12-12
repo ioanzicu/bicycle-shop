@@ -45,7 +45,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo url_for(
                                                           '/favicon/favicon-16x16.png'
                                                         ); ?>">
-    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="manifest" href="<?php echo url_for('/favicon/manifest.json'); ?>">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?php echo url_for(
                                                   '/favicon/ms-icon-144x144.png'
@@ -63,6 +63,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand font-weight-bold" href="<?php echo url_for('/index.php'); ?>"><img height="40"
                 src="<?php echo url_for(

@@ -14,7 +14,7 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared');
 // * Do not need to include the domain
 // * Use same document root as webserver
 // * Can set a hardcoded value:
-// define("WWW_ROOT", '/~kevinskoglund/bicycle_store/public');
+// define("WWW_ROOT", '/~localhost/bicycle_store/public');
 // define("WWW_ROOT", '');
 // * Can dynamically find everything in URL up to "/public"
 $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
@@ -62,3 +62,6 @@ DatabaseObject::set_database($database);
 $session = new Session();
 $cookie = new Cookie();
 $logged = true;
+
+// Load vendors
+require_once PROJECT_PATH . '../vendor/autoload.php';

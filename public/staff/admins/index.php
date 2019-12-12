@@ -1,9 +1,13 @@
-<?php require_once '../../../private/initialize.php'; ?>
+<?php
+require_once '../../../private/initialize.php';
+$config = require_once '../../../private/fb-config.php';
+?>
+
 <?php require_admin_login(); ?>
 
-<?php // Find all admins
-// Find all admins
-?>$admins = Admin::find_all(); ?>
+<!-- Find all admins -->
+<?php $admins = Admin::find_all(); ?>
+
 <?php $page_title = 'Admins'; ?>
 <?php include SHARED_PATH . '/staff_header.php'; ?>
 
@@ -12,9 +16,9 @@
         <h1>Admins</h1>
 
         <div class="actions">
-            <a class="action" href="<?php echo url_for(
-                                '/staff/admins/new.php'
-                              ); ?>">Add Admin</a>
+            <a class="submit btn btn-info" href="<?php echo url_for(
+                                                        '/staff/admins/new.php'
+                                                    ); ?>">Add Admin</a>
         </div>
 
         <table class="list">
@@ -37,14 +41,14 @@
                 <td><?php echo h($admin->get_admin_email()); ?></td>
                 <td><?php echo h($admin->get_admin_username()); ?></td>
                 <td><a class="action" href="<?php echo url_for(
-                                          '/staff/admins/show.php?id=' . h(u($admin->get_admin_id()))
-                                        ); ?>">View</a></td>
+                                                        '/staff/admins/show.php?id=' . h(u($admin->get_admin_id()))
+                                                    ); ?>">View</a></td>
                 <td><a class="action" href="<?php echo url_for(
-                                          '/staff/admins/edit.php?id=' . h(u($admin->get_admin_id()))
-                                        ); ?>">Edit</a></td>
+                                                        '/staff/admins/edit.php?id=' . h(u($admin->get_admin_id()))
+                                                    ); ?>">Edit</a></td>
                 <td><a class="action" href="<?php echo url_for(
-                                          '/staff/admins/delete.php?id=' . h(u($admin->get_admin_id()))
-                                        ); ?>">Delete</a></td>
+                                                        '/staff/admins/delete.php?id=' . h(u($admin->get_admin_id()))
+                                                    ); ?>">Delete</a></td>
             </tr>
             <?php } ?>
         </table>

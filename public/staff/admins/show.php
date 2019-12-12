@@ -5,23 +5,23 @@
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 $id = (int) test_input($id);
 if (!($admin = Admin::find_by_id($id))) {
-  redirect_to('./../../not_found.php');
-  error_404();
+    redirect_to('./../../not_found.php');
+    error_404();
 } else {
-  ?>
+    ?>
 
 <?php $page_title = 'Show Admin: ' . h($admin->full_name()); ?>
 <?php include SHARED_PATH . '/staff_header.php'; ?>
 
-<div id="content">
+<a class="submit btn btn-info m-5" href="<?php echo url_for(
+                                                        '/staff/admins/index.php'
+                                                    ); ?>">&laquo; Back to List</a>
+<div class="container">
 
-    <a class="back-link" href="<?php echo url_for(
-                                    '/staff/admins/index.php'
-                                  ); ?>">&laquo; Back to List</a>
 
     <div class="admin show">
 
-        <h1>Admin: <?php echo h($admin->full_name()); ?></h1>
+        <h1 class="text-center">Admin: <?php echo h($admin->full_name()); ?></h1>
 
         <div class="attributes">
             <dl>

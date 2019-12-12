@@ -1,7 +1,8 @@
 <?php
 if (!isset($page_title)) {
   $page_title = 'Staff Area';
-} ?>
+}
+?>
 
 <!doctype html>
 
@@ -48,7 +49,7 @@ if (!isset($page_title)) {
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo url_for(
                                                           '/favicon/favicon-16x16.png'
                                                         ); ?>">
-    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="manifest" href="<?php echo url_for('/favicon/manifest.json'); ?>">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="<?php echo url_for(
                                                   '/favicon/ms-icon-144x144.png'
@@ -82,10 +83,12 @@ if (!isset($page_title)) {
             <?php
       if ($session->is_logged_in()) { ?>
             <li>Admin: <b><?php echo $session->get_username(); ?></b></li>
-            <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
-            <li><a href="<?php echo url_for(
-                          '/staff/logout.php'
-                        ); ?>">Logout</a></li>
+            <div>
+                <a class="submit btn btn-info" href="<?php echo url_for('/staff/index.php'); ?>">Admin Menu</a>
+                <a class="submit btn btn-danger" href="<?php echo url_for(
+                                                      '/staff/logout.php'
+                                                    ); ?>">Logout</a>
+            </div>
             <?php }
       if ($cookie->is_logged_in()) { ?>
             <li>Hello <?php echo $cookie->get_username(); ?>!</li>
