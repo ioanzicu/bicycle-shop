@@ -1,12 +1,3 @@
-<?php if (isset($super_hero_image)) { ?>
-
-<div>
-    <?php $image_url = url_for('/images/' . $super_hero_image); ?>
-    <img id="super-hero-image" src="<?php echo $image_url; ?>" />
-</div>
-
-<?php } ?>
-
 <footer class="bg-dark text-white card">
     <?php include SHARED_PATH . '/public_copyright_disclaimer.php'; ?>
 </footer>

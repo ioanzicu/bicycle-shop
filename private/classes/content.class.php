@@ -296,34 +296,22 @@ class Content extends DatabaseObject
 
     protected function create()
     {
-        // echo "Validate <br />";
         $this->validate();
-        // echo "Verify is erross[] is empty <br />";
         if (!empty($this->errors)) {
             return false;
         }
-        // echo "Sanitize <br />";
         $attributes = $this->sanitized_attributes();
-        // echo "Insert <br />";
         $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(', ', array_keys($attributes));
         $sql .= ") VALUES ('";
         $sql .= join("', '", array_values($attributes));
         $sql .= "')";
-        // echo "Query <br />";
-        // echo $sql;
         $result = self::$database->query($sql);
-        // echo "Check Query <br />";
-        // var_dump($result);
         if ($result) {
-            // echo "Insert ID <br />";
             var_dump($result);
             $this->id = self::$database->insert_id;
-            // echo $this->id;
         }
-        // echo "Return <br />";
         echo $result;
-        // echo "War Returned <br />";
         return $result;
     }
 
@@ -402,5 +390,3 @@ class Content extends DatabaseObject
         return $result;
     }
 }
-
-?>

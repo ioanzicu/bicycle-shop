@@ -85,5 +85,3 @@ class Cookie
         setcookie("message", "", time() - 1, "/");
     }
 }
-
-?>

@@ -87,12 +87,12 @@ INSERT INTO `bicycles` (`id`, `author`, `brand`, `model`, `year`, `category`, `g
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(25) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `avatar` varchar(255) DEFAULT 'images/default.jpg',
+  `avatar` varchar(550) DEFAULT 'images/default.jpg',
   `provider` varchar(255) DEFAULT NULL,
   `provider_id` varchar(255) DEFAULT NULL,
   `hashed_password` varchar(255) NOT NULL,

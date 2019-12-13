@@ -2,6 +2,8 @@
 require_once '../../private/initialize.php';
 require_once '../../private/fb-setup.php';
 
+ob_start();
+
 try {
     $userAccessToken = $handler->getAccessToken();
 
@@ -30,48 +32,82 @@ try {
             $userAccessToken = $oauth->getLongLivedAccessToken($userAccessToken);
         }
 
-        // get response
+        // LOGIN or SIGN UP
+        // get user information with the token
         $response = $fb->get('/me?fields=id,email,name,picture.width(300).height(300)', (string) $userAccessToken);
         // get data from the response
         $user = $response->getGraphUser();
-        echo "User ";
-        var_dump($user);
 
         // check db if the user exist
-        $exists = $db->prepare("SELECT * FROM users WHERE provider_id = :pid OR email = :email");
+        // Create db connection
+        $connection = db_connect();
+        if ($connection->connect_error) {
+            die("Connection failed: " . $connection->connect_error);
+        }
+
+        // get user email
         $user->getEmail() != "" ? $email = $user->getEmail() : $email = "xxxx";
-        $exists->execute([':pid' => $user->getId(), ':email' => $email]);
+        // id
+        $id = $user->getId();
+        // fullname
+        $fullname = $user->getName();
+        // avatar
+        $avatar = $user->getPicture();
 
-        if ($rs = $exists->fetch()) {
-            $_SESSION['avatar'] = $rs['avatar'];
-            $_SESSION['username'] = $rs['username'];
-            $_SESSION['id'] = $rs['id'];
+        // prepare query
+        $sql = "SELECT id, email, username FROM users WHERE email='" . $email . "';";
+        // query users table
+        $result = $connection->query($sql);
+        // if no users with such email
+        if (mysqli_num_rows($result) > 0) {
+            // user already exist, just Log In
+            echo 'the user is already in the db';
 
-            if (isset($_SESSION['errors'])) unset($_SESSION['errors']);
-            header('Location: index.php');
+            var_dump($result);
+            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                // Set cookie with user data
+                if ($row["email"] === $email) {
+                    $db_index = $row["id"];
+                    $username = $row["username"];
+                }
+            }
+
+            $new_user = User::find_by_username($username);
+            $cookie->login($new_user);
+            // set avatar
+            setcookie('avatar', $avatar->getUrl(), time() + 3600 * 24 * 30, '/');
+
+            // If there are errors, redirect to the index page
+            if (isset($_COOKIE['errors'])) unset($_COOKIE['errors']);
+            header('Location: /bicycle-shop/public/index.php');
         } else {
-            $insertQuery = "INSERT INTO users (username, email, provider, provider_id, avatar)
-                        VALUES(:username, :email, :provider, :provider_id, :avatar)";
+            // New User, add to database then redirect
+            $insertQuery  = "INSERT INTO users (first_name, last_name, email, username, avatar, provider, provider_id, hashed_password, created_at) ";
+            $insertQuery .= "VALUES ('" . $fullname . "' , '" . $fullname . "', '" . $email . "', '" . $fullname . "', '" . $avatar->getUrl() . "', 'Facebook', '" . $id . "', 'XXXXXXXXXxxxxxxxXXXXXXXXXX', '" . date("Y/m/d") . "');";
 
-            $statement = $db->prepare($insertQuery);
-            $avatar = $user->getPicture();
-            $statement->execute([
-                ':username' => $user->getName(), ':email' => $user->getEmail(), ':provider' => 'Facebook',
-                ':provider_id' => $user->getId(), ':avatar' => $avatar->getUrl()
-            ]);
+            if ($connection->query($insertQuery) === TRUE) {
+                $last_id = $connection->insert_id;
+                echo "New record created";
 
-            if ($statement->rowCount() == 1) {
-                $_SESSION['avatar'] = $avatar->getUrl();
-                $_SESSION['username'] = $user->getName();
-                $_SESSION['id'] = $user->getId();
+                // fing new user in the database
+                $new_user = User::find_by_username($fullname);
+                // login
+                $cookie->login($new_user);
+                // Set cookie with user data
+                setcookie('avatar', $avatar->getUrl(), time() + 3600 * 24 * 30, '/');
 
-                if (isset($_SESSION['errors'])) unset($_SESSION['errors']);
-                header('Location: index.php');
+                if (isset($_COOKIE['errors'])) unset($_COOKIE['errors']);
+                header('Location: /bicycle-shop/public/index.php');
+            } else {
+                echo "Something went wrong. Check the syntax of the query, allowed ranges or type of data.";
             }
         }
+
+        // Close connection
+        $connection->close();
     } else {
-        $_SESSION['errors'] = 'You did not authorize';
-        header('Location: index.php');
+        setcookie('errors', 'You did not authorize');
+        header('Location: /bicycle-shop/public/index.php');
     }
 } catch (\Facebook\Exceptions\FacebookResponseException $ex) {
     $errors = "Facebook graph returned an error: " . $ex->getMessage();
@@ -82,12 +118,6 @@ try {
 }
 
 if ($errors != '') {
-    $_SESSION['errors'] = $errors;
-    header('Location: index.php');
+    setcookie('errors',  $errors);
+    header('Location: /bicycle-shop/public/index.php');
 }
-
-echo "Errors: " . $errors;
-
-
-echo "Accesss token: ";
-var_dump($userAccessToken);
