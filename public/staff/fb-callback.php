@@ -50,6 +50,9 @@ try {
         // id
         $id = $user->getId();
         // fullname
+        $str = explode(" ", $user->getName());
+        $first_name = $str[0];
+        $last_name = $str[1];
         $fullname = $user->getName();
         // avatar
         $avatar = $user->getPicture();
@@ -83,7 +86,7 @@ try {
         } else {
             // New User, add to database then redirect
             $insertQuery  = "INSERT INTO users (first_name, last_name, email, username, avatar, provider, provider_id, hashed_password, created_at) ";
-            $insertQuery .= "VALUES ('" . $fullname . "' , '" . $fullname . "', '" . $email . "', '" . $fullname . "', '" . $avatar->getUrl() . "', 'Facebook', '" . $id . "', 'XXXXXXXXXxxxxxxxXXXXXXXXXX', '" . date("Y/m/d") . "');";
+            $insertQuery .= "VALUES ('" . $first_name . "' , '" . $last_name . "', '" . $email . "', '" . $user->getName() . "', '" . $avatar->getUrl() . "', 'Facebook', '" . $id . "', 'XXXXXXXXXxxxxxxxXXXXXXXXXX', '" . date("Y/m/d") . "');";
 
             if ($connection->query($insertQuery) === TRUE) {
                 $last_id = $connection->insert_id;

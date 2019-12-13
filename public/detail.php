@@ -6,23 +6,23 @@
 $id = $_GET['id'] ?? false;
 $id = (int) test_input($id);
 if (!$id) {
-  redirect_to('content.php');
+    redirect_to('content.php');
 }
 
 // Find bicycle using ID
 
 if (!($bike = Content::find_by_id($id))) {
-  redirect_to('./not_found.php');
-  error_404();
+    redirect_to('./not_found.php');
+    error_404();
 } else {
-  ?>
+    ?>
 
 <?php $page_title = 'Detail: ' . $bike->name(); ?>
 <?php include SHARED_PATH . '/public_header.php'; ?>
 
-<div id="main">
+<div class="container m-3 p-5">
 
-    <a href="content.php">Back to Inventory</a>
+    <a class="submit btn btn-primary" href="content.php">Back to Inventory</a>
 
     <div id="page">
 
@@ -54,8 +54,8 @@ if (!($bike = Content::find_by_id($id))) {
             <dl>
                 <dt>Weight</dt>
                 <dd><?php echo h($bike->weight_kg()) .
-                  ' / ' .
-                  h($bike->weight_lbs()); ?></dd>
+                                ' / ' .
+                                h($bike->weight_lbs()); ?></dd>
             </dl>
             <dl>
                 <dt>Condition</dt>
@@ -64,8 +64,8 @@ if (!($bike = Content::find_by_id($id))) {
             <dl>
                 <dt>Price</dt>
                 <dd><?php echo h(
-                  money_format('$%i', $bike->get_content_price())
-                ); ?></dd>
+                                money_format('$%i', $bike->get_content_price())
+                            ); ?></dd>
             </dl>
             <dl>
                 <dt>Description</dt>

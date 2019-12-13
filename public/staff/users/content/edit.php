@@ -37,12 +37,14 @@ if (is_post_request()) {
 <?php $page_title = 'Edit Bicycle'; ?>
 <?php include(SHARED_PATH . '/staff_header.php'); ?>
 
-<div id="content">
+<div class="container">
 
-    <a class="back-link" href="<?php echo url_for('/staff/users/content/index.php'); ?>">&laquo; Back to List</a>
+    <a class="submit btn btn-primary m-3" href="<?php echo url_for('/staff/users/content/index.php'); ?>">&laquo; Back
+        to
+        List</a>
 
     <div class="bicycle edit">
-        <h1>Edit Bicycle</h1>
+        <h1 class="text-center">Edit Bicycle</h1>
 
         <?php echo display_errors($bicycle->get_errors()); ?>
 
@@ -50,8 +52,8 @@ if (is_post_request()) {
 
             <?php include('form_fields.php'); ?>
 
-            <div id="operations">
-                <input type="submit" value="Edit Bicycle" />
+            <div class="text-center mb-5">
+                <input class="submit btn btn-primary" type="submit" value="Edit Bicycle" />
             </div>
         </form>
 
